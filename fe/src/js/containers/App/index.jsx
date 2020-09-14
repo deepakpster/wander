@@ -1,7 +1,23 @@
-import React from "react";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import App from '../../components/App';
+import { calcActions } from '../../actions';
 
-const App = () => {
-  return <div>Hello World</div>;
-};
+const mapStateToProps = (state, props) => ({
+  ...state,
+  ...props
+});
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  calcActions: bindActionCreators(
+    calcActions,
+    dispatch
+  )
+})
+
+const AppContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
+
+export default AppContainer;

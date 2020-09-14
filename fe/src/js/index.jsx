@@ -6,13 +6,14 @@ import { Router, Route, Switch } from "react-router-dom";
 import { store, history } from "./store";
 import "../scss/main.scss";
 import App from "./containers/App";
+import Error from './components/Error';
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route path="/" component={App} />
-        <Route component={App} />
+        <Route exact path="/" component={App} />
+        <Route render={() => <Error/> } />
       </Switch>
     </Router>
   </Provider>,
