@@ -1,5 +1,5 @@
 import { all, call, fork, put, take, takeEvery } from 'redux-saga/effects'
-import {history} from '../store.js';
+import {forwardTo} from '../store.js';
 
 import {
   loginSuccess,
@@ -15,12 +15,10 @@ function* loginSaga({type, payload}) {
   try {
     const data = yield call(rsf.auth.signInWithEmailAndPassword, payload.username, payload.password)
     yield put(loginSuccess(data.user))
-    console.log('history', history)
-    history.push('/')
+    yield call(forwardTo, '/')
 
     // successful login will trigger the loginStatusWatcher, which will update the state
   } catch (error) {
-  console.log('login error',error)
   yield put(loginFailure(error))
   }
 }
@@ -39,15 +37,16 @@ function* logoutSaga() {
 function* loginStatusWatcher() {
   // events on this channel fire when the user logs in or logs out
   if(rsf) {
-    console.log('rsf', rsf)
-        const channel = yield call(rsf.auth.channel)
+      const channel = yield call(rsf.auth.channel)
     
       while (true) {
         const { user } = yield take(channel)
-    console.log('user', user)
-        if (user) yield put(loginSuccess(user))
-        else {
+        if (user){ 
+          yield put(loginSuccess(user))
+          yield call(forwardTo, '/')
+        } else {
           yield put(logoutSuccess())
+          yield call(forwardTo, '/signin')
         }
       }
     }

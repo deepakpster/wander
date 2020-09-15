@@ -5,7 +5,7 @@ export const authCheck = ()=> action(actions.AUTH_CHECK)
 export const login = (username, password, history) => action(actions.LOGIN_REQUEST, {username, password, history})
 export const loginSuccess = (user) => action(actions.LOGIN_SUCCESS, {user})
 export const loginFailure = (error) => action(actions.LOGIN_FAILURE, {error})
-export const logout = () => action(actions.LOGOUT)
+export const logout = () => action(actions.LOGOUT_REQUEST)
 export const logoutSuccess = () => action(actions.LOGOUT_SUCCESS)
 export const logoutFailure = (error) => action(actions.LOGOUT_FAILURE, {error})
 

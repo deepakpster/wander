@@ -15,7 +15,8 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/signin" component={SignIn} />
-        <Route path="/" component={App} />
+        <Auth path="/" component={App} />
+        <Route component={Error} />
       </Switch>
     </Router>
   </Provider>,

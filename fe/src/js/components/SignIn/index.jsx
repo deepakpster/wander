@@ -11,6 +11,9 @@ export default class SignIn extends React.Component {
     this.emailChange = this.emailChange.bind(this)
     this.passwordChange = this.passwordChange.bind(this)
   }
+  componentDidMount() {
+    this.props.authActions.authCheck(this.props.history);
+  }
   componentDidUpdate(newprops) {
     if(newprops.login.user) {
       this.props.history.push('/')

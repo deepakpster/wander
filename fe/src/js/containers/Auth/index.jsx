@@ -8,7 +8,7 @@ import { authActions } from './../../actions';
 
 class Auth extends React.Component {
     componentDidMount() {
-        this.props.authActions.authCheck(this.props.history);
+        this.props.authActions.authCheck();
     }
     render() {
         const { component: Component, ...rest } = this.props;
