@@ -8,12 +8,14 @@ import "../scss/main.scss";
 import Auth from './containers/Auth';
 import App from "./containers/App";
 import SignIn from "./containers/SignIn";
+import SignUp from "./containers/SignUp";
 import Error from './components/Error';
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
+        <Route path="/signup" component={SignUp} />
         <Route path="/signin" component={SignIn} />
         <Auth path="/" component={App} />
         <Route component={Error} />

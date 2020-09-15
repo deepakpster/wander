@@ -13,9 +13,9 @@ class Auth extends React.Component {
     render() {
         const { component: Component, ...rest } = this.props;
         const { user } = this.props.login;
-        return (user ? (
+        return (user ? user.emailVerified ?(
             <Component {...this.props} />
-        ) : (
+        ) : (<div>Please Verify your email</div>) : (
                 <Delay wait={250}>
                     <p>Loading...</p>
                 </Delay>

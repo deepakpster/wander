@@ -5,8 +5,8 @@ export default class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email:"deepakpster@gmail.com",
-      password: "fasttrack"
+      email:"",
+      password: ""
     }
     this.emailChange = this.emailChange.bind(this)
     this.passwordChange = this.passwordChange.bind(this)
