@@ -1,16 +1,15 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import App from '../../components/App';
+import SignIn from '../../components/SignIn';
 import { withRouter } from 'react-router-dom';
-import { calcActions } from '../../actions';
-
+import { authActions } from '../../actions';
 
 export default withRouter(connect(
   (state, props) => ({
-      ...state,
-      ...props,
+    ...state,
+    ...props,
   }),
   (dispatch => ({
-      calcActions: bindActionCreators(calcActions, dispatch)
+    authActions: bindActionCreators(authActions, dispatch)
   })),
-)(App));
+)(SignIn));

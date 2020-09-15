@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+    console.log('App COmponent', props)
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
