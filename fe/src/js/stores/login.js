@@ -3,13 +3,7 @@ const initialState = {
   loggedIn: false,
   user: null,
   errorCode: null,
-  errorMessage: null,
-  passwordResetEmailErrorCode: null,
-  passwordResetEmailErrorMessage: null,
-  passwordResetEmailMessage: null,
-  signUpErrorCode: null,
-  signUpErrorMessage: null,
-  signUpMessage: null
+  errorMessage: null
 }
 
 export default function loginReducer(state = initialState, action = {}) {
@@ -28,6 +22,18 @@ export default function loginReducer(state = initialState, action = {}) {
       }
     case 'LOGIN_FAILURE':
       console.log('action::', action)
+      return {
+        ...initialState,
+        errorCode: action.payload.error.code,
+        errorMessage: action.payload.error.message
+      }
+    case 'SIGNUP_SUCCESS':
+      return {
+        ...initialState,
+        loggedIn: true,
+        user: action.payload.user,
+      }
+    case 'SIGNUP_FAILURE':
       return {
         ...initialState,
         errorCode: action.payload.error.code,

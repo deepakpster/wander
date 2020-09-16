@@ -22,8 +22,8 @@ export const store = createStore(
 );
 
 sagaMiddleware.run(rootSaga);
+
 export const action = type => store.dispatch({ type });
-action(actions.INITALIZE_APPLICATION);
 
 const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyDUpcQFvbqkoHtAnVGk_9ifgOckBWFyKnY",
@@ -34,4 +34,5 @@ const firebaseApp = firebase.initializeApp({
   messagingSenderId: "813304501473",
   appId: "1:813304501473:web:dde88b0e430a283f7793a0"
 });
+
 export const rsf = new ReduxSagaFirebase(firebaseApp);
