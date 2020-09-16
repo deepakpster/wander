@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot",
-    "build": "NODE_ENV=production webpack --mode production --progress"
+    "build": "NODE_ENV=production webpack --mode production --progress",
+    "deploy": "npm run build && aws s3 sync dist/ s3://wander-pd --delete --profile default && npm run invalidate-cache",
+    "invalidate-cache": "aws configure set preview.cloudfront true --profile default && aws cloudfront create-invalidation --distribution-id EQ35MJCAH3T90 --paths '/*' --profile default"
   },
   "repository": {
     "type": "git",
