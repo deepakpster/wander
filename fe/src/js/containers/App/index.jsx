@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import App from '../../components/App';
 import { withRouter } from 'react-router-dom';
-import { authActions } from '../../actions';
+import { authActions, dashboardActions } from '../../actions';
 
 
 export default withRouter(connect(
@@ -11,6 +11,7 @@ export default withRouter(connect(
       ...props,
   }),
   (dispatch => ({
+      dashboardActions: bindActionCreators(dashboardActions, dispatch),
       authActions: bindActionCreators(authActions, dispatch)
   })),
 )(App));

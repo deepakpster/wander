@@ -1,3 +1,4 @@
 import * as authActions from './authActions';
+import * as dashboardActions from './dashboardActions';
 
-export {authActions}
+export {authActions, dashboardActions}

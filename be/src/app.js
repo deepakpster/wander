@@ -1,9 +1,12 @@
 const express = require('express');
 const request = require('superagent');
-const app = express();
+var cors = require('cors');
 
 const BASE_API = `http://covid19-india-adhikansh.herokuapp.com`;
 const MOHFW_API = `https://www.mohfw.gov.in/data`
+
+const app = express();
+app.use(cors())
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
