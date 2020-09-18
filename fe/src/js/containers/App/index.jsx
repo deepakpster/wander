@@ -1,7 +1,17 @@
-import React from "react";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import App from '../../components/App';
+import { withRouter } from 'react-router-dom';
+import { authActions, dashboardActions } from '../../actions';
 
-const App = () => {
-  return <div>Hello World</div>;
-};
 
-export default App;
+export default withRouter(connect(
+  (state, props) => ({
+      ...state,
+      ...props,
+  }),
+  (dispatch => ({
+      dashboardActions: bindActionCreators(dashboardActions, dispatch),
+      authActions: bindActionCreators(authActions, dispatch)
+  })),
+)(App));
