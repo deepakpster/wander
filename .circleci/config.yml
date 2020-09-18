@@ -1,25 +1,17 @@
-version: 2
-jobs: 
-  build: 
-    working_directory: fe
+version: 2.1
+
+jobs:
+  fe:
     docker:
-      - image: circleci/node:12.13.0
+      - image: circleci/node:14.11.0
+
+    working_directory: ~/wander
     steps:
       - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run:
-          name: Install dependencies
-          command: npm install
-  
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run:    
-          name: Run tests
-          command: npm test
+      - run: cd fe && npm install --no-package-lock && npm run test
+
+workflows:
+  version: 2
+  concurrently:
+    jobs:
+      - fe
