@@ -50,7 +50,7 @@ export default class SignUp extends React.Component {
                   <input type="text" className="form-control" placeholder="First Name" value={firstname} onChange={this.firstnameChange} aria-label="firstname" aria-describedby="button-firstname"/>
                 </div>
                 <div className="input-group mb-3">
-                  <input type="text" className="form-control" placeholder="Last Name" value={firstname} onChange={this.lastnameChange} aria-label="lastname" aria-describedby="button-lastname"/>
+                  <input type="text" className="form-control" placeholder="Last Name" value={lastname} onChange={this.lastnameChange} aria-label="lastname" aria-describedby="button-lastname"/>
                 </div>
                 <div className="input-group mb-3">
                   <input type="text" className="form-control" value={email} onChange={this.emailChange} placeholder="Email" aria-label="email" aria-describedby="button-email" />

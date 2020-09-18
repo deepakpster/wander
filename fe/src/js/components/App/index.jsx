@@ -1,6 +1,7 @@
 import React from 'react';
 import Delay from 'react-delay';
 import PropTypes from 'prop-types';
+import Verify from './../SignUp/verify.jsx';
 import styles from './styles.scss';
 
 export default class App extends React.Component {
@@ -9,13 +10,15 @@ export default class App extends React.Component {
   }
   render() {
     const {statistics} = this.props.dashboard;
-    return (<div className={``}>
+    const { user } = this.props.login;
+    return (<div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <a className="navbar-brand">Wander</a>
         <button className="btn btn-outline-danger" onClick={this.props.authActions.logout}>Logout</button>
       </nav>
       <div className={`container-fluid ${styles.body}`}>
       {
+        (!user.emailVerified) ? <Verify /> :
         (statistics.length > 0) ? <div className="row m-auto justify-content-center">
         {
           statistics.map((s,sIdx)=>{
