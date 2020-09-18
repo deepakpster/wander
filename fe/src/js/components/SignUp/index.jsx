@@ -72,7 +72,7 @@ export default class SignUp extends React.Component {
           </div>
         </div>
         <div className={`${styles.footer} animated slower delay-5s fadeInUp`}>
-          <span>Developed with <i className="material-icons text-danger">favorite</i> by <span className={styles.strong}>@deepakpster.</span><i className={`material-icons ${styles.copyright}`}>copyright</i></span>
+          <span>Developed with <i className="material-icons text-danger">favorite</i> by <a className={`font-weight-bold`} href="https://github.com/deepakpster" className={styles.strong}>@deepakpster.</a><i className={`material-icons ${styles.copyright}`}>copyright</i></span>
         </div>
         <div className="elementor-shape elementor-shape-bottom" data-negative="false">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
