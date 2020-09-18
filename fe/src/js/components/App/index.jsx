@@ -12,7 +12,7 @@ export default class App extends React.Component {
     return (<div className={``}>
       <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <a className="navbar-brand">Wander</a>
-        <button className="btn btn-danger" onClick={this.props.authActions.logout}>Logout</button>
+        <button className="btn btn-outline-danger" onClick={this.props.authActions.logout}>Logout</button>
       </nav>
       <div className={`container-fluid ${styles.body}`}>
       {

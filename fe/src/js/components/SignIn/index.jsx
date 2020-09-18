@@ -47,7 +47,7 @@ export default class SignIn extends React.Component {
                   <input type="password" className="form-control" value={password} onChange={this.passwordChange} placeholder="Password" aria-label="password" aria-describedby="button-password" />
                 </div>
                 <div className="input-group-append d-flex justify-content-end">
-                  <button className="btn btn-outline-secondary float-right" type="button" onClick={()=>this.props.authActions.login(email, password)}>Sign In</button>
+                  <button className="btn btn-outline-primary float-right" type="button" onClick={()=>this.props.authActions.login(email, password)}>Sign In</button>
                   <button className="btn btn-link" onClick={()=>this.props.history.push('/signup')}>Sign Up</button>
                 </div>
                 {
