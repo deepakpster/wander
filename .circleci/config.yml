@@ -1,7 +1,7 @@
 version: 2
 jobs: 
   build: 
-    working_directory: ~/repo/fe
+    working_directory: fe
     docker:
       - image: circleci/node:12.13.0
     steps:
