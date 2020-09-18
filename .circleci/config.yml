@@ -1,20 +1,25 @@
-version: 2.1
-jobs:
-  build:
-    working_directory: ~/fe
+version: 2
+jobs: 
+  build: 
+    working_directory: ~/repo/fe
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:12.13.0
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@5'
+      # Download and cache dependencies
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run:
-          name: test
+          name: Install dependencies
+          command: npm install
+  
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:    
+          name: Run tests
           command: npm test
