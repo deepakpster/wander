@@ -39,7 +39,7 @@ export default class SignIn extends React.Component {
           <div className={styles.accessContainer}>
             <div className={`card ${styles.card}`}>
               <div className="card-body">
-                <h4>Wander</h4>
+                <h4>Wander : Login</h4>
                 <div className="input-group mb-3">
                   <input type="text" className="form-control" value={email} onChange={this.emailChange} placeholder="Email" aria-label="email" aria-describedby="button-email" />
                 </div>

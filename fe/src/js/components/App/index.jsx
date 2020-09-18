@@ -1,6 +1,7 @@
 import React from 'react';
 import Delay from 'react-delay';
 import PropTypes from 'prop-types';
+import styles from './styles.scss';
 
 export default class App extends React.Component {
   componentDidMount(){
@@ -8,15 +9,17 @@ export default class App extends React.Component {
   }
   render() {
     const {statistics} = this.props.dashboard;
-    return (<div className={`container`}>
-      <nav>
-        <button className="btn btn-secondary" onClick={this.props.authActions.logout}>Logout</button>
+    return (<div className={``}>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+        <a className="navbar-brand">Wander</a>
+        <button className="btn btn-danger" onClick={this.props.authActions.logout}>Logout</button>
       </nav>
+      <div className={`container-fluid ${styles.body}`}>
       {
-        (statistics.length > 0) ? <div className="row">
+        (statistics.length > 0) ? <div className="row m-auto justify-content-center">
         {
           statistics.map((s,sIdx)=>{
-            return <div key={`c-${sIdx}`} className="col-md-6 card">
+            return <div key={`c-${sIdx}`} className="card col-md-5 m-2">
                 <div className="card-header">{s.state_name || 'India (All States)'}</div>
                 <ul className="list-group list-group-flush">
                 <li className="list-group-item">Active(Total):{s.active}</li>
@@ -35,6 +38,7 @@ export default class App extends React.Component {
           <p>Loading...</p>
         </Delay>
       }
+      </div>
       
     </div>);
   }
