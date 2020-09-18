@@ -3,6 +3,12 @@ import { shallow } from 'enzyme';
 import App from './../App';
 
 describe('App', () => {
+  it("Should render without throwing an error", () => {
+    expect(shallow(
+      <App/>
+    )).not.toBeNull();
+  });
+
   it('should render correctly in "debug" mode', () => {
     const component = shallow(<App debug />);
   
