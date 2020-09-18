@@ -17,7 +17,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/signup" component={SignUp} />
         <Route path="/signin" component={SignIn} />
-        <Auth path="/" component={App} />
+        <Auth exact path="/" component={App} />
         <Route component={Error} />
       </Switch>
     </Router>
