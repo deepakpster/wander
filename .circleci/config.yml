@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  fe:
+    docker:
+      - image: circleci/node:14.11.0
+
+    working_directory: ~/wander
+    steps:
+      - checkout
+      - run: cd fe && npm install --no-package-lock && npm run test
+
+workflows:
+  version: 2
+  concurrently:
+    jobs:
+      - fe
